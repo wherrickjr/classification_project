@@ -126,4 +126,19 @@ def internet_churn(telco):
     chi2, p, degf, expected = stats.chi2_contingency(observed)
     return chi2, p, degf, expected
 
-def train_and_assign(telco):
+def prep_classification_project_logistic(telco):
+    telco.drop(columns = ['Unnamed: 0', 'customer_id', 'gender', 'senior_citizen', 'partner', 'dependents', 'tenure'
+                    , 'phone_service', 'internet_service_type_id', 'streaming_movies', 'contract_type_id',
+                    'paperless_billing', 'payment_type_id', 'payment_type', 'multiple_lines', 'online_backup',
+                    'device_protection', 'tech_support', 'streaming_tv'], inplace = True)
+    telco.dropna()
+    telco = telco.loc[telco["total_charges"] != ' '] 
+    telco['total_charges'] = telco["total_charges"].astype(float)
+    dummy_df = pd.get_dummies(telco[['online_security', 'churn', 'internet_service_type', 'contract_type']], 
+                        dummy_na=False, drop_first=[True, True])
+    telco['scaled_total'] = (telco['total_charges'])/ 8684.8
+    telco['scaled_monthly'] = (telco['monthly_charges'])/ 118.75
+    telco.drop(columns = ['monthly_charges', 'total_charges', 'churn'], inplace = True)
+    telco = pd.concat([telco, dummy_df], axis=1)
+    telco.drop(columns = ['online_security', 'internet_service_type', 'contract_type'], inplace = True)
+    return telco

@@ -63,15 +63,15 @@ My initial hypothesis is there will be multiple factors that influence customer 
 4) Run notebook.
  
 # Takeaways and Conclusions
-* Upsets occur in 1/3 of games
-* In games where the lower rated player moves first there is a 4% greater chance of an upset
-* Games that are rated have a 3% higher chance of an upset
-* Games with a "quick" time control (30 min or less) have about a 1 in 3 chance of upset
-* Games with a "slow" time control (60 min or more) have about a 1 in 5 chance of upset
-* The mean rating of players in a game is not a driver of upsets
-* The difference in player rating is a driver of upsets
-* A player's choice of opening is a driver of upsets, however its influence is complicated and I would need more time to discover what role it plays
+* "Internet service type" and "online security" were each found to be factors of "churn"
+    * The influence appears strong
+* Monthly charges appears to have influence on churn
+    * the spread of the distribution indicates that the influence is weak
+* Contract type can may influence churn based on visuals
+* Having online security also affects churn as shown in our visuals
+* These are enough features to create a model that can predict customer churn
  
 # Recommendations
-* To increase the skill intensity of a game add to the length of time players are able to consider their moves
-* Based on the data longer time controls make it less likely for a less skilled player to beat a more skilled player
+* Consider lowering price of Fiber Optic and increase customers with online_security
+* Use Logistic Regression model to predict whether or not a customer is going to churn and have marketing team target these customers
+* Accquire more demographic data from customers

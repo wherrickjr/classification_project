@@ -38,7 +38,7 @@ My initial hypothesis is there will be multiple factors that influence customer 
        * Does having online_security affect churn?
        * Does a customer's internet service type affect churn?
       
-* Develop a Model to predict if a chess game will end in an upset
+* Develop a Model to predict if a customer will churn
    * Use factors identified in explore to build predictive models of different types
    * Evaluate models on train and validate data
    * Select the best model based on highest accuracy
@@ -55,7 +55,10 @@ My initial hypothesis is there will be multiple factors that influence customer 
 |monthly_charges| How much money in USD a customer pays per month|
 |total_charges| How much money in USD a customer has paid over the course of their contract(s)|
 |contract_type| The length of a customer's contract before they can cancel without penalties|
- 
+|internet_service_type| Indicates which internet service a customer has: DSL, Fiber Optic, or No Internet
+|scaled_total| Scaled value for total charges per customer
+|scaled_monthly| scaled value for monthly charges per customer
+
 # Steps to Reproduce
 1) Clone this repo.
 2) Acquire the data from sql database
